@@ -1,0 +1,6 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+Saved_Articles/*
+!Saved_Articles/.gitkeep

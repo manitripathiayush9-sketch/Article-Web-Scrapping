@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article Web Scraping</title>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Article<span>Scraper</span></div>
+    <span class="status">Python · Guardian API</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">NEWS RESEARCH TOOL</p>
+      <h1>Find news.<br><span>Extract knowledge.</span></h1>
+      <p>
+        Search Guardian articles, extract readable text and save
+        articles for research and NLP experiments.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Find articles</h2>
+
+      <form id="search-form">
+        <label for="query">Keyword</label>
+        <input id="query" placeholder="e.g. artificial intelligence">
+
+        <label for="section">News section</label>
+        <select id="section">
+          <option value="">All sections</option>
+          <option value="technology">Technology</option>
+          <option value="science">Science</option>
+          <option value="business">Business</option>
+          <option value="world">World</option>
+          <option value="environment">Environment</option>
+          <option value="education">Education</option>
+          <option value="politics">Politics</option>
+          <option value="sport">Sport</option>
+          <option value="culture">Culture</option>
+        </select>
+
+        <label for="limit">Number of articles</label>
+        <select id="limit">
+          <option value="3">3 articles</option>
+          <option value="5" selected>5 articles</option>
+          <option value="10">10 articles</option>
+        </select>
+
+        <button id="search-button" type="submit">
+          Search and extract →
+        </button>
+      </form>
+
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Search results <span id="count"></span></h2>
+      <div id="results" class="grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <h2>Saved articles</h2>
+          <p>Articles stored as individual text files.</p>
+        </div>
+        <button id="refresh" class="secondary">Refresh</button>
+      </div>
+
+      <div class="exports">
+        <a href="/export/json">Download JSON</a>
+        <a href="/export/csv">Download CSV</a>
+      </div>
+
+      <div id="saved"></div>
+    </section>
+
+    <section class="panel">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div><b>01 · Discover</b><p>Guardian API returns article URLs.</p></div>
+        <div><b>02 · Retrieve</b><p>Requests downloads webpages.</p></div>
+        <div><b>03 · Extract</b><p>BeautifulSoup parses HTML.</p></div>
+        <div><b>04 · Store</b><p>Python saves TXT files.</p></div>
+      </div>
+    </section>
+
+    <footer>
+      Article Web Scraping · B.Tech CSE (Data Science)
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
